@@ -10,7 +10,7 @@
  */
 package net.fqj.ssd.store;
 
-import net.fqj.ssd.ShusiHttpSession;
+import net.fqj.ssd.FqjHttpSession;
 
 /**
  * 会话存储接口.
@@ -31,7 +31,7 @@ public interface Store {
      *
      * @return the loaded Session instance
      */
-    ShusiHttpSession load(String id, int expireTime);
+    FqjHttpSession load(String id, int expireTime);
 
     /**
      * Remove the Session with the specified session identifier from this Store,
@@ -40,7 +40,7 @@ public interface Store {
      * @param session identifier of the Session to be removed
      *
      */
-    void remove(ShusiHttpSession session);
+    void remove(FqjHttpSession session);
 
     /**
      * Save the specified Session into this Store. Any previously saved
@@ -50,5 +50,5 @@ public interface Store {
      * @param expireTime Session expire time
      *
      */
-    void save(ShusiHttpSession session, int expireTime);
+    void save(FqjHttpSession session, int expireTime);
 }

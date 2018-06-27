@@ -9,7 +9,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 import net.sf.json.JSONObject;
-import net.fqj.ssd.ShusiHttpSession;
+import net.fqj.ssd.FqjHttpSession;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -57,7 +57,7 @@ public class WebStore extends AbstractStore {
      */
     @Override
     @SuppressWarnings("null")
-    public void save(final ShusiHttpSession session, final int expireTime) {
+    public void save(final FqjHttpSession session, final int expireTime) {
         try {
 
             final String serviceUrl = "/web-session/save";
@@ -103,7 +103,7 @@ public class WebStore extends AbstractStore {
      */
     @Override
     @SuppressWarnings("null")
-    public ShusiHttpSession load(final String persistenceId, final int expireTime) {
+    public FqjHttpSession load(final String persistenceId, final int expireTime) {
         try {
 
             final String serviceUrl = "/web-session/load";
@@ -131,7 +131,7 @@ public class WebStore extends AbstractStore {
             final JSONObject response = result.optJSONObject("data");
 
             //构造会话信息
-            final ShusiHttpSession session = new ShusiHttpSession();
+            final FqjHttpSession session = new FqjHttpSession();
 
             session.setPersistenceId(persistenceId);
             session.setLastAccessedTime(System.currentTimeMillis());
@@ -168,7 +168,7 @@ public class WebStore extends AbstractStore {
      */
     @SuppressWarnings("null")
     @Override
-    public void remove(final ShusiHttpSession session) {
+    public void remove(final FqjHttpSession session) {
         try {
             final String serviceUrl = "/web-session/remove";
 

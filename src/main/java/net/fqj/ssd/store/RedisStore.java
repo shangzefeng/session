@@ -10,7 +10,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 import net.sf.json.JSONObject;
-import net.fqj.ssd.ShusiHttpSession;
+import net.fqj.ssd.FqjHttpSession;
 
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
@@ -53,7 +53,7 @@ public class RedisStore extends AbstractStore {
      */
     @Override
     @SuppressWarnings("null")
-    public void save(final ShusiHttpSession session, final int expireTime) {
+    public void save(final FqjHttpSession session, final int expireTime) {
         Jedis jedis = null;
         try {
             jedis = jedisPool.getResource();
@@ -83,7 +83,7 @@ public class RedisStore extends AbstractStore {
      */
     @Override
     @SuppressWarnings("null")
-    public ShusiHttpSession load(final String persistenceId, final int expireTime) {
+    public FqjHttpSession load(final String persistenceId, final int expireTime) {
         Jedis jedis = null;
         try {
             jedis = jedisPool.getResource();
@@ -94,7 +94,7 @@ public class RedisStore extends AbstractStore {
                 return null;
             }
 
-            final ShusiHttpSession session = new ShusiHttpSession();
+            final FqjHttpSession session = new FqjHttpSession();
 
             session.setPersistenceId(persistenceId);
             session.setCreationTime(Long.parseLong(map.getOrDefault("creationTime", "0")));
@@ -122,7 +122,7 @@ public class RedisStore extends AbstractStore {
      */
     @SuppressWarnings("null")
     @Override
-    public void remove(final ShusiHttpSession session) {
+    public void remove(final FqjHttpSession session) {
         Jedis jedis = null;
         try {
             if (null == session) {

@@ -18,18 +18,18 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * ShusiSessionManager .
+ * FqjSessionManager .
  *
  * @author fsz
  * @version 1.0.0.0, Oct 12, 2017
  * @since 1.0.0
  */
-public class ShusiSessionManager {
+public class FqjSessionManager {
 
     /**
      * Logger.
      */
-    private static final Logger LOGGER = LoggerFactory.getLogger(ShusiSessionManager.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(FqjSessionManager.class);
 
     /**
      * session store object.
@@ -63,13 +63,13 @@ public class ShusiSessionManager {
      * @param create .
      * @return .
      */
-    public ShusiHttpSession createSession(final SessionHttpServletRequestWrapper request,
+    public FqjHttpSession createSession(final SessionHttpServletRequestWrapper request,
             final HttpServletResponse response, final RequestEventSubject requestEventSubject,
             final boolean create) {
 
         final String sessionId = getRequestedSessionId(request);
 
-        ShusiHttpSession session = null;
+        FqjHttpSession session = null;
         if (StringUtils.isEmpty(sessionId) && !create) {
             return null;
         }
@@ -124,9 +124,9 @@ public class ShusiSessionManager {
      * @param response .
      * @return .
      */
-    private ShusiHttpSession createEmptySession(final SessionHttpServletRequestWrapper request,
+    private FqjHttpSession createEmptySession(final SessionHttpServletRequestWrapper request,
             final HttpServletResponse response) {
-        final ShusiHttpSession session = new ShusiHttpSession();
+        final FqjHttpSession session = new FqjHttpSession();
         session.setCookieSessionId(createSessionId());
         session.setPersistenceId(generatorSessionKey(session.getCookieSessionId()));
         session.setCreationTime(System.currentTimeMillis());
@@ -149,20 +149,20 @@ public class ShusiSessionManager {
      * response.
      *
      *
-     * @param session ShusiHttpSession
+     * @param session FqjHttpSession
      * @param request HttpServletRequestWrapper
      * @param response HttpServletResponse
      * @param requestEventSubject RequestEventSubject
      * @param sessionExpireTime expireTime
      */
-    private void attachEvent(final ShusiHttpSession session, final HttpServletRequestWrapper request,
+    private void attachEvent(final FqjHttpSession session, final HttpServletRequestWrapper request,
             final HttpServletResponse response, final RequestEventSubject requestEventSubject,
             final int sessionExpireTime) {
 
         session.setListener(new SessionListenerAdaptor() {
 
             @Override
-            public void onInvalidated(final ShusiHttpSession session) {
+            public void onInvalidated(final FqjHttpSession session) {
                 //删除会话数据
                 session.setPersistenceId(generatorSessionKey(session.getId()));
                 getStore().remove(session);
@@ -187,7 +187,7 @@ public class ShusiSessionManager {
      * @param request .
      * @param response .
      */
-    private void setCookie(final ShusiHttpSession session,
+    private void setCookie(final FqjHttpSession session,
             final HttpServletRequestWrapper request, final HttpServletResponse response) {
 
         final Cookie cookie = new Cookie(store.getSessionIdCookieName(), null);

@@ -24,7 +24,7 @@ import org.slf4j.LoggerFactory;
  * @version 1.0.0.0, Oct 12, 2017
  * @since 1.0.0
  */
-public class ShusiSessionFilter implements Filter {
+public class FqjSessionFilter implements Filter {
 
     /**
      * 过滤.
@@ -34,12 +34,12 @@ public class ShusiSessionFilter implements Filter {
     /**
      * LOGGER.
      */
-    private static final Logger LOGGER = LoggerFactory.getLogger(ShusiSessionFilter.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(FqjSessionFilter.class);
 
     /**
      * 会话管理对象.
      */
-    private ShusiSessionManager manager;
+    private FqjSessionManager manager;
 
     /**
      * init.
@@ -56,7 +56,7 @@ public class ShusiSessionFilter implements Filter {
      *
      * @param manager .
      */
-    public void setSessionManager(final ShusiSessionManager manager) {
+    public void setSessionManager(final FqjSessionManager manager) {
         this.manager = manager;
     }
 

@@ -20,7 +20,7 @@ public class SessionListenerAdaptor implements SessionListener {
      * @param session HttpSession.
      */
     @Override
-    public void onAttributeChanged(final ShusiHttpSession session) {
+    public void onAttributeChanged(final FqjHttpSession session) {
     }
 
     /**
@@ -29,6 +29,6 @@ public class SessionListenerAdaptor implements SessionListener {
      * @param session HttpSession.
      */
     @Override
-    public void onInvalidated(final ShusiHttpSession session) {
+    public void onInvalidated(final FqjHttpSession session) {
     }
 }

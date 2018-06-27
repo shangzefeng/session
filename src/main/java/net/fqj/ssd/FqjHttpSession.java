@@ -21,7 +21,7 @@ import java.util.Map;
  * @version 1.0.0.0, Oct 12, 2017
  * @since 1.0.0
  */
-public class ShusiHttpSession implements HttpSession, Serializable {
+public class FqjHttpSession implements HttpSession, Serializable {
 
     /**
      * .

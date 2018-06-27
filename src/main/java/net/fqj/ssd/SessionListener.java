@@ -19,12 +19,12 @@ public interface SessionListener {
      *
      * @param session HttpSession.
      */
-    void onAttributeChanged(ShusiHttpSession session);
+    void onAttributeChanged(FqjHttpSession session);
 
     /**
      * 会话失效时触发.
      *
      * @param session HttpSession.
      */
-    void onInvalidated(ShusiHttpSession session);
+    void onInvalidated(FqjHttpSession session);
 }

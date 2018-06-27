@@ -28,12 +28,12 @@ public class SessionHttpServletRequestWrapper extends HttpServletRequestWrapper 
     /**
      * httpsession.
      */
-    private ShusiHttpSession httpSession;
+    private FqjHttpSession httpSession;
 
     /**
      * manager.
      */
-    private final ShusiSessionManager manager;
+    private final FqjSessionManager manager;
 
     /**
      * subject.
@@ -49,7 +49,7 @@ public class SessionHttpServletRequestWrapper extends HttpServletRequestWrapper 
      * @param requestEventSubject 观察者
      */
     public SessionHttpServletRequestWrapper(final HttpServletRequest request,
-            final HttpServletResponse response, final ShusiSessionManager manager,
+            final HttpServletResponse response, final FqjSessionManager manager,
             final RequestEventSubject requestEventSubject) {
         super(request);
         this.response = response;
