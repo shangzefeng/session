@@ -16,7 +16,10 @@ session-manager
 
 ## 会话存储目前实现了两个版本, RedisStore及WebStore
 
-## RedisStore用户简单的会话存储和读取（适用于会话管理简单的应用场景）
+## RedisStore
+```
+用户简单的会话存储和读取（适用于会话管理简单的应用场景）redisStore只会对会话数据进行write和read。
+```
 ### 配置项
 - jedisPool : reids的连接池
 ### sample
@@ -47,9 +50,12 @@ session-manager
     }
 ```
 
-## WebStore用于调用外部接口进行会话的存储和读取（会话管理相对可以自定义复杂度，
+## WebStore
+```
+用于调用外部接口进行会话的存储和读取（会话管理相对可以自定义复杂度，
 会话存储和读取利用外部接口实现，
 外部接口的实现方式可以有很大的想像空间）
+```
 ### 配置项
 - appKey:应用key如 ： BOX 、NOTARY_BOX、SIMPLE_LOW
 - urlRoot:url地址 ：  会话管理请求root地址 http://host:port
