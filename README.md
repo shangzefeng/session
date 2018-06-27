@@ -18,7 +18,7 @@ session-manager
 RedisStore用户简单的会话存储和读取（适用于会话管理简单的应用场景）
 ##配置项
 - jedisPool : reids的连接池
-- sample
+### sample
 ```java
 @Bean
     public FilterRegistrationBean filterRegistrationBean() {
@@ -55,7 +55,7 @@ WebStore用于调用外部接口进行会话的存储和读取（会话管理相
 - saveRule:登录策略如 : UNLIMITED:无限制(默认) ;SINGLE_ONLINE:一个账号某时刻只能在全系统中使用 ; 
                       SUBSYSTEM_SINGLE_ONLINE:一个账号只能在全系统中的某个子系统中使用。此策略由会话管理的外部系统定义,
                       此处给出的是个例子.
-- sample
+### sample
 ```java
 @Bean
     public FilterRegistrationBean filterRegistrationBean() {
